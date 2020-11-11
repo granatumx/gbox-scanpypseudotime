@@ -28,7 +28,7 @@ def main():
   # dpt_groups
 
   for spec in [{'col': 'dpt_order', 'caption': 'Cell order'}, {'col': 'dpt_groups', 'caption': 'Cell groups'}]:
-    plt.figure()
+    fig = plt.figure()
     sc.pl.diffmap(adata, color=spec['col'])
     gn.add_current_figure_to_results(spec['caption'])
     gn.export_statically(dict(zip(adata.obs_names.tolist(), adata.obs[spec['col']].values.tolist())), spec['col'])
